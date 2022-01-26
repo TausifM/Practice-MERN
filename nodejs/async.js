@@ -20,4 +20,15 @@ console.log(a + b);
 
 // 10;
 // we cannot add b, because it cannot wait when execution is done
-// for handling this situation we need callbacks or Promises
+// for handling this situation we need callbacks or Promises, async await
+
+let waitingData = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(40);
+  }, 2000);
+});
+waitingData.then((data) => {
+  b = data;
+  console.log(a + b);
+});
+// result 50;
